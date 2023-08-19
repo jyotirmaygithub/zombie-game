@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+}
+:root{
+    --actualgreen :#7FD443;
+    --hoverred : #7B241C;
+}
+.universal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.start-play{
+    background-image: url(./assets/zombie-shoot-background.png);
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+}
+.cursor{
+    /* these 16 and 16 are cordinates of the cursor of the mouse. It is setting 16px left and 16 px top of the images which we are using  */
+    /* crosshair is a css cursor property  */
+    cursor: url('https://img.informer.com/icons/png/32/113/113532.png') 16 16, crosshair;  
+}
+.start-here{
+    height: 8vh;
+    width: 14vw;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--actualgreen);
+    color: white;
+    font-size: 25px;
+    font-weight: bolder;
+    font-family: 'Fira Sans Condensed', sans-serif;
+}
+.start-here:hover{
+    cursor: pointer;
+    background-color: var(--hoverred);  
+}
+.timer{
+    position: absolute;
+    right: 90px;
+    top: 15px;
+    font-size: 25px;
+    font-weight: 800;
+    color: white;
+}
+/* second section  */
+.game-container{
+    background-image: url(./assets/zombie-shoot-game-background.png);
+}
+.zombie-class{
+    position: absolute;
+    bottom: -100px;
+    animation-name: zombie-rotation;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out; 
+    z-index: 2;  
+    height: 150px;
+    width: 150px;
+    opacity: 0.7;
+}
+@keyframes zombie-rotation {
+    0% {
+        bottom:  -100px
+    }
+    100%{
+        bottom : 1080px
+    }
+}
+/* third section */
+.gameoverbox,.winnerbox{
+    justify-content: center;
+    line-height: 3;
+}
+.start-play,h1{
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bolder;
+}
+@media screen and (max-width:900px) {
+    .start-play{
+       gap: 5%;
+    }
+    .universal{
+        justify-content: center;
+    }
+    .logo{
+        width: 100vw;
+    }
+    .start-here{
+        width: 30vw;
+    }
+}
+@media screen and (max-width:450px) {
+    .start-play{
+        gap: 0;
+    }
+    .start-play,h1{
+        font-size: 20px;
+    }
+    .start-here{
+        width: 50vw;
+    }
+    .over,.win{
+        width: 100vw;
+    }
+
+}
